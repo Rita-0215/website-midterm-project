@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+body {
+    margin: 0; /*外側間距*/
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #FFF9F5;
+    color: #333333;
+}
+
+header {
+    background-color: #fcc9d1;
+    padding: 20px; /*內側間距*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*大標題*/
+header h1 {
+    margin: 0;
+    color: #ab4a76;
+}
+
+/* 右側導覽列 */
+nav a {
+    color: #5A4A50;
+    text-decoration: none; /*移除超連結底線*/
+    margin-left: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #A94E73;
+    text-decoration: underline;
+}
+
+/* 首頁滿版照片 */
+.banner {
+    background-image: linear-gradient( /*在照片上加半透明深色遮罩*/
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.25)
+    ), url("../images/banner.jpg");
+
+    background-size: cover; /*照片填滿整個區塊*/
+    background-position: center;
+
+    height: 450px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*文字垂直置中*/
+    align-items: center; /*文字水平置中*/
+
+    color: white;
+    text-align: center;
+}
+
+/* 照片中央標題 */
+.banner h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+/* 首頁韓國介紹 */
+.hero {
+    background-color: #FFF9F5;
+    padding: 60px 40px;
+    display: flex; /*文字與照片左右排列*/
+    align-items: center; /*文字與照片垂直置中*/
+    gap: 40px;
+}
+
+/* 左側介紹文字 */
+.hero-text {
+    flex: 1;
+}
+
+.hero-text p {
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* 右側韓國照片 */
+.hero img {
+    width: 45%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #cc6392;
+}
+
+/* 旅遊特色 */
+.features {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* 四宮格 */
+.grid-container {
+    display: grid; /*排版*/
+    grid-template-columns: repeat(2, 1fr); /*建立兩欄,每欄平均分配寬度*/
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 每一格 */
+.grid-item {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 15px; /*圓角*/
+    border: 1.5px solid #E8B9C5; /*粉色邊框*/
+}
+
+/* 首頁特色區塊照片 */
+.grid-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* 滑鼠移到格子時 */
+.grid-item:hover {
+    background-color: #FFF0F3;
+}
+
+/* 四宮格內的連結 */
+.grid-item a {
+    color: #333333;
+    text-decoration: none;
+    display: block;
+}
+
+/* 滑鼠移到連結卡片時 */
+.grid-item:has(a) {
+    transition: 0.3s;
+}
+
+.grid-item:has(a):hover {
+    transform: translateY(-5px);
+}
+
+/* 頁尾 */
+footer {
+    background-color: #fcc9d1;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 回到最上方 */
+.back-to-top {
+    display: inline-block; /*不會自動換行，也可以設定寬高*/
+    color: #A94E73;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+/* 滑鼠移到文字時 */
+.back-to-top:hover {
+    color: #C76B8B;
+    transform: translateY(-3px); /*文字稍微往上移*/
+}
+
+/* 平滑捲動 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 熱門景點頁面 */
+.attractions {
+    padding: 40px 20px;
+    max-width: 900px; /*最大寬度*/
+    margin: 0 auto;
+}
+
+.attractions h2 {
+    text-align: center;
+    color: #43353e;
+}
+
+.attractions > p { /*只影響第一層p的文字*/
+    text-align: center;
+}
+
+/* 景點介紹卡片 */
+.attractions-card {
+    background-color: #FFFFFF;
+    padding: 0;
+    margin: 25px 0;
+    border-radius: 15px;
+    border: 2px solid #FFD1DC;
+    overflow: hidden;
+}
+
+/* 景點圖片 */
+.attractions-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover; /*圖片填滿指定區域,維持比例並適當裁切*/
+    display: block;
+    border-radius: 0;
+}
+
+/* 景點圖片容器 */
+.attractions-image {
+    position: relative; /*讓遮罩以圖片為基準定位*/
+    overflow: hidden; /*超出範圍的內容不要顯示*/
+}
+
+/* 圖片上的粉色遮罩 */
+.attractions-overlay {
+    position: absolute; /*覆蓋在圖片上*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center; /*水平置中*/
+    align-items: center; /*垂直置中*/
+
+    background-color: rgba(90, 45, 65, 0.7); /*半透明玫瑰粉*/
+    opacity: 0; /*平常隱藏*/
+    transition: opacity 0.3s; /*淡入淡出效果*/
+}
+
+/* 遮罩上的地址文字 */
+.attractions-overlay p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+}
+
+/* 滑鼠移到照片時顯示遮罩 */
+.attractions-image:hover .attractions-overlay {
+    opacity: 1;
+}
+
+/* 文字區域 */
+.attractions-info {
+    padding: 20px 30px; /*上下、左右*/
+}
+
+.attractions-info h3 {
+    color: #C76B8B;
+    margin: 0 0 15px;
+}
+
+.attractions-info p {
+    color: #555555;
+    line-height: 1.9;
+    margin: 0 0 15px;
+}
+
+/* 景點官方網站按鈕 */
+.official-link {
+    display: inline-block; /*讓連結像按鈕*/
+    background-color: #a483ea;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none; /*移除超連結底線*/
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* 滑鼠移到按鈕時 */
+.official-link:hover {
+    transform: translateY(-3px);
+}
+
+/* 韓國美食頁面 */
+.food {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.food h2 {
+    text-align: center;
+    color: #43353e;
+}
+
+.food > p {
+    text-align: center;
+}
+
+/* 美食卡片 */
+.food-card {
+    background-color: #FFF0F3;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 2px solid #F4C4D0;
+    display: flex; /*左右排列*/
+    align-items: center; /*文字置中對齊(上下)*/
+    transition: 0.3s;
+}
+
+.food-card h3 {
+    color: #C76B8B;
+}
+
+.food-card:hover {
+    transform: translateY(-3px);
+}
+
+/* 美食圖片 */
+.food-card img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* 第偶數張圖片放右邊 */
+.food-card:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+/* 美食介紹 */
+.food-info {
+    padding: 20px;
+}
+
+/* 偶數張美食卡片的文字靠左 */
+.food-card:nth-of-type(even) .food-info {
+    margin-right: auto;
+    padding-left: 15px;
+    text-align: left;
+}
+
+/* 旅遊規劃頁面 */
+.planner {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 頁面標題 */
+.planner h2 {
+    text-align: center;
+    color: #43353e;
+}
+
+/* 頁面介紹 */
+.planner > p {
+    text-align: center;
+}
+
+/* 行程表標題 */
+.planner h3 {
+    color: #cf6b81;
+}
+
+/* 三個小標題下方的介紹文字 */
+.planner h3 + p {
+    text-align: left; /*文字靠左對齊*/
+}
+
+/* 行程表格 */
+.planner table {
+    width: 100%;
+    border-collapse: separate; /*表格設定圓角*/
+    border-spacing: 0; /*移除儲存格之間的空隙*/
+    background-color: white;
+    border: 1px solid #F1D7DE;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* DAY 1、DAY 2、DAY 3 */
+.planner th {
+    background-color: #F5CBD5;
+    color: #96516B;
+    padding: 15px;
+    width: 90px;
+    border-right: 1px solid #F1D7DE;
+    border-bottom: 1px solid #F1D7DE;
+    text-align: center;
+}
+
+/* 時間與行程 */
+.planner td {
+    background-color: white;
+    padding: 15px;
+    border-right: 1px solid #F1D7DE;
+    border-bottom: 1px solid #F1D7DE;
+    text-align: left;
+}
+
+/* 時間欄位 */
+.planner td:first-of-type { /*每一列中的第一個<td>*/
+    width: 80px;
+    text-align: center;
+}
+
+/* 偶數列改成奶油白 */
+.planner tr:nth-child(even) td {
+    background-color: #FFF9F5;
+}
+
+/* 最右邊的儲存格不顯示右框線 */
+.planner tr td:last-child {
+    border-right: none;
+}
+
+/* 最後一列不顯示下框線 */
+.planner tr:last-child td,
+.planner tr:last-child th {
+    border-bottom: none;
+}
+
+/* DAY 1、DAY 2 左側欄位下方加粗 */
+.planner tr:first-child th,
+.planner tr:nth-child(7) th {
+    border-bottom: 1.5px solid #E8A8B8;
+}
+
+/* DAY 1、DAY 2 最後一列的時間與行程下方加粗 */
+.planner tr:nth-child(6) td,
+.planner tr:nth-child(11) td {
+    border-bottom: 1.5px solid #E8A8B8;
+}
+
+/* 旅費計算 */
+.budget {
+    background-color: #FFF0F3;
+    padding: 35px 40px;
+    border: 1px solid #F4C4D0;
+    border-radius: 18px;
+    margin-top: 20px;
+}
+
+.budget label {
+    display: block; /*獨立顯示一行*/
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #5A4A50;
+    font-weight: bold;
+}
+
+.budget input {
+    box-sizing: border-box; /*讓寬度包含內距和邊框*/
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #F1D7DE;
+    border-radius: 15px;
+    background-color: white;
+    font-size: 16px;
+}
+
+.budget button {
+    background-color: #C76B8B;
+    color: white;
+    border: none; /*移除預設邊框*/
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 25px;
+    cursor: pointer; /*滑鼠移入時顯示手形游標*/
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.budget button:hover {
+    background-color: #A94E73;
+}
+
+#result {
+    background-color: white;
+    color: #96516B;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 12px 15px;
+    border: 1px solid #F1D7DE;
+    border-radius: 15px;
+    margin-top: 20px;
+
+}
+
+/* 旅遊行李清單 */
+.packing {
+    background-color: #FFF0F3;
+    padding: 35px 40px;
+    border: 1px solid #F4C4D0;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.packing input {
+    box-sizing: border-box; /*讓寬度包含內距和邊框*/
+    padding: 13px 15px;
+    width: 70%;
+    border: 1px solid #F1D7DE;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+}
+
+.packing button {
+    background-color: #C76B8B;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.packing button:hover {
+    background-color: #A94E73;
+}
+
+.packing ul { 
+    list-style: none; /*移除預設項目符號*/
+    padding-left: 0; /*移除左側預設間距*/
+    margin-top: 20px;
+}
+
+/*清單中的單一項目*/
+.packing li { 
+    background-color: white;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border: 1px solid #F1D7DE;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 勾選框 */
+.packing li input {
+    width: auto;
+    accent-color: #C76B8B; /*設定勾選框顏色*/
+    cursor: pointer; /*滑鼠移入時顯示手形游標*/
+}
+
+/* 物品名稱 */
+.packing li span {
+    flex: 1;
+    color: #5A4A50;
+}
+
+/* 刪除按鈕 */
+.packing li button {
+    background-color: #E8A8B8;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* 滑鼠移到刪除按鈕時 */
+.packing li button:hover {
+    background-color: #C76B8B;
+}

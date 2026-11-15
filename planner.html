@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅遊規劃｜韓國旅遊指南</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="top">
+
+    <header>
+        <h1>韓國旅遊指南</h1>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="attractions.html">熱門景點</a>
+            <a href="food.html">特色美食</a>
+            <a href="planner.html">旅遊規劃</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="planner">
+            <h2>韓國旅遊規劃</h2>
+            <p>從三天兩夜的推薦行程，到旅費預算與行李準備，
+                一起輕鬆規劃一趟充實又精彩的韓國自由行！</p>
+
+            <h3>三天兩夜推薦行程</h3>
+            <p>精選首爾熱門景點、特色美食與購物商圈，
+                安排三天兩夜的推薦行程，
+                讓你輕鬆探索首爾的多元魅力！</p>
+
+            <table>
+                <!-- DAY 1 -->
+                <tr>
+                    <th rowspan="6">DAY 1</th> <!--跨越6列-->
+                    <td>09:00</td>
+                    <td>抵達韓國、前往飯店</td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td>景福宮、韓服體驗</td>
+                </tr>
+                <tr>
+                    <td>12:30</td>
+                    <td>午餐：韓式拌飯 &amp; 大醬湯</td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td>北村韓屋村</td>
+                </tr>
+                <tr>
+                    <td>18:00</td>
+                    <td>晚餐：韓式炸雞 &amp; 魚板湯 &amp; 啤酒</td>
+                </tr>
+                <tr>
+                    <td>19:00</td>
+                    <td>明洞商圈</td>
+                </tr>
+
+                <!-- DAY 2 -->
+                <tr>
+                    <th rowspan="5">DAY 2</th> <!--跨越5列-->
+                    <td>09:00</td>
+                    <td>弘大商圈</td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td>午餐：韓式炸醬麵 &amp; 泡菜</td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td>聖水洞咖啡廳</td>
+                </tr>
+                <tr>
+                    <td>17:00</td>
+                    <td>晚餐：韓式烤肉</td>
+                </tr>
+                <tr>
+                    <td>18:30</td>
+                    <td>南山首爾塔</td>
+                </tr>
+
+                <!-- DAY 3 -->
+                <tr>
+                    <th rowspan="6">DAY 3</th> <!--跨越6列-->
+                    <td>08:00</td>
+                    <td>從首爾出發，前往江華島</td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td>江華島傳燈寺</td>
+                </tr>
+                <tr>
+                    <td>12:30</td>
+                    <td>午餐：韓式蔘雞湯</td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td>伴手禮採買</td>
+                </tr>
+                <tr>
+                    <td>14:30</td>
+                    <td>返回首爾，前往機場</td>
+                </tr>
+                <tr>
+                    <td>17:00</td>
+                    <td>晚餐：機場用餐、準備返回台灣</td>
+                </tr>
+            </table>
+
+            <h3>旅費計算</h3>
+            <p>輸入住宿、交通、餐飲與購物的預估花費，
+                點擊「總金額」按鈕，即可快速計算旅遊預算！</p>
+
+            <div class="budget">
+                <!-- <input type="number">：讓使用者輸入數字 -->
+                <!-- placeholder：輸入框尚未輸入時顯示提示文字 -->
+                <!-- <button>：按鈕 -->
+                <!-- <p id="result">：用JavaScript顯示計算結果 -->
+                <label>住宿：</label>
+                <input type="number" id="hotel" placeholder="請輸入金額">
+
+                <label>交通：</label>
+                <input type="number" id="transport" placeholder="請輸入金額">
+
+                <label>餐飲：</label>
+                <input type="number" id="food" placeholder="請輸入金額">
+
+                <label>購物：</label>
+                <input type="number" id="shopping" placeholder="請輸入金額">
+
+                <button id="calculate">總金額</button>
+
+                <p id="result">總金額：尚未計算</p>
+            </div>
+
+            <h3>行李清單</h3>
+            <p>出發前別忘了確認行李！<br>
+                輸入需要攜帶的物品並加入清單，
+                勾選已準備完成的物品，或刪除不需要的項目，讓旅行準備更有條理！</p>
+
+            <div class="packing">
+                <input type="text" id="itemInput" placeholder="請輸入要攜帶的物品">
+
+                <button id="addItem">新增物品</button>
+
+                <ul id="packingList"></ul> <!--無序清單-->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#top" class="back-to-top">Back To Top ↑</a>
+        <p>2026 Korea Travel Guide | Designed by Chen Yan-Ting</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
